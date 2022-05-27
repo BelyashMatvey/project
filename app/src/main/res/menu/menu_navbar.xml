@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/DNA"
+        android:title="DNA"
+    />
+    <item
+        android:id="@+id/Gen"
+        android:title="Genetic Problems"
+        />
+</menu>
