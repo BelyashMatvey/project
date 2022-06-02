@@ -4,14 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@drawable/picture1"
     tools:context=".DnaFragment">
+
+    <TextView
+        android:id="@+id/proteinL3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="40dp"
+        android:fontFamily="sans-serif"
+        android:text="DNA code"
+        android:textColor="@color/norm"
+        android:textSize="30dp"
+        android:textStyle="bold|italic|normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/protein2"
+        android:layout_width="350dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="228dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/norm"
+        android:textSize="20dp"
+        android:textStyle="bold|italic|normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_width="351dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="40dp"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="Input your DNA code"
@@ -22,33 +49,31 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185"
+        app:layout_constraintVertical_bias="0.108"
         tools:ignore="LabelFor" />
 
     <TextView
         android:id="@+id/protein"
-        android:layout_width="170dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="400dp"
+        android:layout_width="385dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="440dp"
         android:fontFamily="sans-serif"
         android:textColor="@color/norm"
-        android:background="@color/teal_700"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:textStyle="bold|italic|normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/RNA"
-        android:layout_width="176dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="288dp"
-        android:background="@color/teal_700"
-        android:fontFamily="sans-serif-medium"
+        android:layout_width="349dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="352dp"
+        android:fontFamily="sans-serif"
         android:textColor="@color/norm"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:textStyle="bold|italic|normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,28 +82,33 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="148dp"
+        android:layout_marginEnd="156dp"
+        android:backgroundTint="@color/teal_700"
+        android:elevation="9dp"
         android:fontFamily="sans-serif"
-        android:text="Button"
-        android:textColor="@color/norm"
+        android:shadowColor="@color/blue"
+        android:stateListAnimator="@null"
+        android:text="Solve"
+        android:textColor="@color/white"
         android:textStyle="bold|italic|normal"
+        android:translationZ="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RNA"
-        app:layout_constraintVertical_bias="0.575" />
+        app:layout_constraintVertical_bias="0.723" />
 
     <TextView
         android:id="@+id/RNAL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginStart="40dp"
         android:fontFamily="sans-serif"
         android:text="RNA code"
         android:textColor="@color/norm"
         android:textSize="30dp"
         android:textStyle="bold|italic|normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,14 +116,29 @@
         android:id="@+id/proteinL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="344dp"
-        android:layout_marginEnd="116dp"
+        android:layout_marginTop="388dp"
+        android:layout_marginStart="40dp"
         android:fontFamily="sans-serif"
         android:text="Protein code"
         android:textColor="@color/norm"
         android:textSize="30dp"
         android:textStyle="bold|italic|normal"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/proteinL2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="156dp"
+        android:layout_marginStart="40dp"
+        android:fontFamily="sans-serif"
+        android:text="second strand of DNA"
+        android:textColor="@color/norm"
+        android:textSize="30dp"
+        android:textStyle="bold|italic|normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

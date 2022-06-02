@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.TreeMap;
@@ -208,78 +210,97 @@ public class DnaFragment extends Fragment  {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v1) {
-                EditText edt=(EditText) v.findViewById(R.id.input);
-                String s=edt.getText().toString();
-                s=s.toLowerCase();
-                String output="";
-                for (int i = 0; i < s.length(); i++) {
-                    char k=s.charAt(i);
-
-                    if(k=='a'){
-                        String k1="u";
-                        output= output+k1;
-                    }
-                    else if(k=='g'){
-                        String k1="c";
-                        output= output+k1;
-                    }
-                    else if(k=='t'){
-                        String k1="a";
-                        output= output+k1;
-                    }
-                    else if(k=='c'){
-                        String k1="g";
-                        output= output+k1;
-                    }
-                }
-                int st_ind=-1;
-                for (int i=0;i<output.length()-2;i++){
-                    String fi=Character.toString(output.charAt(i));
-                    String se=Character.toString(output.charAt(i+1));
-                    String th=Character.toString(output.charAt(i+2));
-                    String p_ans=fi+se+th;
-                    if(p_ans.equals("aug")){
-                        st_ind=i;
-                        break;
-                    }
-                }
-                String output_ans="";
-                for (int i=0;i<output.length();i++){
-                    if(i!=0&&i%3==0){
-                        String k=Character.toString(output.charAt(i));
-                        k=k.toUpperCase(Locale.ROOT);
-                        output_ans=output_ans+"-"+k;
-                    }
-                    else{
-                        String k=Character.toString(output.charAt(i));
-                        k=k.toUpperCase(Locale.ROOT);
-                        output_ans=output_ans+k;
-                    }
-                }
-                TextView txt=(TextView) v.findViewById(R.id.RNA);
-                txt.setText(output_ans);
-                if(st_ind==-1){
-                    TextView txt1=(TextView) v.findViewById(R.id.protein);
-                    txt1.setText("Wrong amino acid");
-                }
-                else{
-                    String ans="";
-                    output=output.substring(st_ind);
-                    for (int i=0;i<output.length();i+=3){
-                        if(i+2<output.length()) {
-                            String fi = Character.toString(output.charAt(i));
-                            String se = Character.toString(output.charAt(i + 1));
-                            String th = Character.toString(output.charAt(i + 2));
-                            String p_ans=fi+se+th;
-                            String c=mp.get(p_ans);
-                            ans=ans+c+"-";
+                EditText edt = (EditText) v.findViewById(R.id.input);
+                String s = edt.getText().toString();
+                s = s.toLowerCase();
+                String output = "";
+                String outputDNA = "";
+                if (s.length() == 0|| s.equals("Wrong amino acid")) {
+                    edt.setText("Wrong amino acid");
+                } else {
+                    for (int i = 0; i < s.length(); i++) {
+                        char k = s.charAt(i);
+                        if (k == 'a') {
+                            String k1 = "u";
+                            outputDNA += "t";
+                            output = output + k1;
+                        } else if (k == 'g') {
+                            String k1 = "c";
+                            outputDNA += "c";
+                            output = output + k1;
+                        } else if (k == 't') {
+                            String k1 = "a";
+                            outputDNA += "a";
+                            output = output + k1;
+                        } else if (k == 'c') {
+                            String k1 = "g";
+                            outputDNA += "g";
+                            output = output + k1;
                         }
                     }
-                    ans=ans.substring(0,ans.length()-1);
-                    TextView txt1=(TextView) v.findViewById(R.id.protein);
-                    txt1.setText(ans);
+                    String outputDNA_s = "";
+                    for (int i = 0; i < outputDNA.length(); i++) {
+                        if (i != 0 && i % 3 == 0) {
+                            String k = Character.toString(outputDNA.charAt(i));
+                            k = k.toUpperCase(Locale.ROOT);
+                            outputDNA_s = outputDNA_s + "-" + k;
+                        } else {
+                            String k = Character.toString(outputDNA.charAt(i));
+                            k = k.toUpperCase(Locale.ROOT);
+                            outputDNA_s = outputDNA_s + k;
+                        }
+                    }
+                    char f= (char)outputDNA_s.indexOf(outputDNA_s.length()-1);
+                    if(f=='-')outputDNA_s=outputDNA_s.substring(0,outputDNA_s.length()-2);
+                    TextView textView = (TextView) v.findViewById(R.id.protein2);
+                    textView.setText(outputDNA_s);
+                    int st_ind = -1;
+                    for (int i = 0; i < output.length() - 2; i++) {
+                        String fi = Character.toString(output.charAt(i));
+                        String se = Character.toString(output.charAt(i + 1));
+                        String th = Character.toString(output.charAt(i + 2));
+                        String p_ans = fi + se + th;
+                        if (p_ans.equals("aug")) {
+                            st_ind = i;
+                            break;
+                        }
+                    }
+                    String output_ans = "";
+                    for (int i = 0; i < output.length(); i++) {
+                        if (i != 0 && i % 3 == 0) {
+                            String k = Character.toString(output.charAt(i));
+                            k = k.toUpperCase(Locale.ROOT);
+                            output_ans = output_ans + "-" + k;
+                        } else {
+                            String k = Character.toString(output.charAt(i));
+                            k = k.toUpperCase(Locale.ROOT);
+                            output_ans = output_ans + k;
+                        }
+                    }
+                    TextView txt = (TextView) v.findViewById(R.id.RNA);
+                    txt.setText(output_ans);
+                    if (st_ind == -1) {
+                        TextView txt1 = (TextView) v.findViewById(R.id.protein);
+                        txt1.setText("Wrong amino acid");
+                    } else {
+                        String ans = "";
+                        output = output.substring(st_ind);
+                        for (int i = 0; i < output.length(); i += 3) {
+                            if (i + 2 < output.length()) {
+                                String fi = Character.toString(output.charAt(i));
+                                String se = Character.toString(output.charAt(i + 1));
+                                String th = Character.toString(output.charAt(i + 2));
+                                String p_ans = fi + se + th;
+                                String c = mp.get(p_ans);
+                                ans = ans + c + "-";
+                            }
+                        }
+                        ans = ans.substring(0, ans.length() - 1);
+                        TextView txt1 = (TextView) v.findViewById(R.id.protein);
+                        txt1.setText(ans);
+                    }
+                    v.invalidate();
                 }
-                v.invalidate();
             }
         });
         return v;
