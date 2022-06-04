@@ -1,10 +1,8 @@
 package com.example.myapplication;
 
-import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -17,17 +15,12 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
